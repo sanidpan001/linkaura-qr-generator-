@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instagram Link in Bio QR Generator - Free, Unlimited, No Watermark | LinkAura</title>
+  <meta name="description" content="Create Instagram-style QR with logo + aesthetic Link in Bio page with YouTube, WhatsApp links. Pink themes, PNG/SVG download. Free & unlimited.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="LinkAura">
+  <meta name="theme-color" content="#ff4fa3">
+  <link rel="canonical" href="https://linkaura.fixoraa.tech/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Instagram Link in Bio QR Generator | LinkAura">
+  <meta property="og:description" content="Build an aesthetic Link in Bio page and Instagram-style QR code with a center logo.">
+  <meta property="og:url" content="https://linkaura.fixoraa.tech/">
+  <meta property="og:site_name" content="LinkAura">
+  <meta property="og:image" content="https://linkaura.fixoraa.tech/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Instagram Link in Bio QR Generator | LinkAura">
+  <meta name="twitter:description" content="Create a beautiful Link in Bio page and QR code with LinkAura.">
+  <meta name="twitter:image" content="https://linkaura.fixoraa.tech/og-image.png">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"SoftwareApplication",
+    "name":"LinkAura Instagram Link in Bio QR Generator",
+    "applicationCategory":"DesignApplication",
+    "operatingSystem":"Web",
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+    "description":"Free browser-based Link in Bio page and Instagram-style QR generator."
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"What is an Instagram Link in Bio QR code?","acceptedAnswer":{"@type":"Answer","text":"It is a QR code that opens a creator's Link in Bio page containing multiple social, shop, messaging or website links."}},
+      {"@type":"Question","name":"Can I add a YouTube and WhatsApp link?","acceptedAnswer":{"@type":"Answer","text":"Yes. LinkAura supports up to four buttons and includes YouTube, WhatsApp, Shop, Instagram and custom icon choices."}},
+      {"@type":"Question","name":"Can I customize the colors?","acceptedAnswer":{"@type":"Answer","text":"Yes. LinkAura includes six visual themes and a font selector for different creator styles."}},
+      {"@type":"Question","name":"Can I download the QR code?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can download a 1024px PNG, an SVG wrapper, or print the QR directly."}},
+      {"@type":"Question","name":"Does LinkAura save my settings?","acceptedAnswer":{"@type":"Answer","text":"The current builder state is stored locally in your browser using LocalStorage."}},
+      {"@type":"Question","name":"Does the QR code really scan?","acceptedAnswer":{"@type":"Answer","text":"Yes. The QR is generated with QRCode.js using high error correction, then a small center logo is composited over it."}}
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"Instagram Link in Bio QR Generator Guide",
+    "author":{"@type":"Organization","name":"LinkAura"},
+    "publisher":{"@type":"Organization","name":"LinkAura"},
+    "description":"A practical guide to Link in Bio pages, branded QR codes, color themes and creator use cases."
+  }
+  </script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+    :root {
+      --accent: #ff4fa3;
+      --accent2: #8b5cf6;
+      --surface: rgba(255,255,255,.78);
+      --surface-dark: rgba(20,20,28,.82);
+      --text: #17121d;
+      --muted: #6f6677;
+      --border: rgba(255,255,255,.45);
+      --shadow: 0 24px 70px rgba(74, 32, 72, .14);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: Inter, system-ui, sans-serif;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(255,110,199,.20), transparent 30%),
+        radial-gradient(circle at 90% 15%, rgba(139,92,246,.16), transparent 30%),
+        linear-gradient(135deg, #fff7fc 0%, #f7f4ff 52%, #fff 100%);
+    }
+
+    body.dark-page {
+      color: #f7f3fa;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(255,79,163,.13), transparent 30%),
+        radial-gradient(circle at 90% 15%, rgba(139,92,246,.12), transparent 30%),
+        #0e0c13;
+    }
+
+    .glass {
+      background: var(--surface);
+      border: 1px solid rgba(255,255,255,.65);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .dark-page .glass {
+      background: var(--surface-dark);
+      border-color: rgba(255,255,255,.10);
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #ff3e9d, #8b5cf6, #ff7b54);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .ad-slot {
+      min-height: 96px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .top-ad-inner {
+      transform-origin: center top;
+      width: 728px;
+      height: 90px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    @media (max-width: 760px) {
+      .top-ad-inner {
+        transform: scale(.88);
+        height: 82px;
+      }
+    }
+
+    .field {
+      width: 100%;
+      border: 1px solid #eadfeb;
+      background: rgba(255,255,255,.84);
+      border-radius: 14px;
+      padding: 12px 14px;
+      outline: none;
+      transition: .2s ease;
+    }
+
+    .dark-page .field {
+      color: #fff;
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.12);
+    }
+
+    .field:focus {
+      border-color: #ff5aae;
+      box-shadow: 0 0 0 4px rgba(255,90,174,.12);
+    }
+
+    textarea.field { resize: vertical; min-height: 86px; }
+
+    .theme-card {
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: .2s ease;
+    }
+
+    .theme-card.active {
+      border-color: #ff4fa3;
+      transform: translateY(-1px);
+      box-shadow: 0 10px 30px rgba(255,79,163,.16);
+    }
+
+    .phone {
+      width: min(340px, 100%);
+      aspect-ratio: 9 / 18.8;
+      border: 9px solid #17131d;
+      border-radius: 42px;
+      padding: 8px;
+      position: relative;
+      box-shadow: 0 35px 80px rgba(26,17,36,.30);
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .phone-notch {
+      width: 38%;
+      height: 24px;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #17131d;
+      border-radius: 0 0 18px 18px;
+      z-index: 3;
+    }
+
+    .bio-screen {
+      width: 100%;
+      height: 100%;
+      border-radius: 31px;
+      overflow: auto;
+      padding: 46px 18px 22px;
+      transition: background .25s ease;
+    }
+
+    .bio-screen::-webkit-scrollbar { width: 0; }
+
+    .bio-avatar {
+      width: 78px;
+      height: 78px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid rgba(255,255,255,.92);
+      box-shadow: 0 8px 22px rgba(0,0,0,.15);
+      background: #eee;
+    }
+
+    .bio-button {
+      min-height: 48px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      font-weight: 700;
+      color: #fff;
+      box-shadow: 0 8px 20px rgba(0,0,0,.12);
+      transition: transform .18s ease;
+      text-decoration: none;
+    }
+
+    .bio-button:hover { transform: translateY(-2px); }
+    .bio-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 9px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,.20);
+      flex: 0 0 28px;
+      font-size: 13px;
+    }
+
+    .qr-stage {
+      width: min(430px, 100%);
+      min-height: 470px;
+      display: grid;
+      place-items: center;
+      border-radius: 28px;
+      padding: 28px;
+      transition: background .25s ease;
+    }
+
+    #qrCanvas {
+      max-width: 100%;
+      height: auto;
+      border-radius: 18px;
+      box-shadow: 0 18px 40px rgba(25,15,32,.16);
+      background: #fff;
+    }
+
+    .range {
+      accent-color: #ff4fa3;
+      width: 100%;
+    }
+
+    .action {
+      min-height: 46px;
+      border-radius: 14px;
+      padding: 0 16px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: .2s ease;
+    }
+
+    .action:hover { transform: translateY(-1px); }
+    .primary {
+      color: #fff;
+      background: linear-gradient(135deg, #ff4fa3, #8b5cf6);
+      box-shadow: 0 12px 28px rgba(255,79,163,.22);
+    }
+
+    .secondary {
+      color: #3a3040;
+      background: rgba(255,255,255,.84);
+      border: 1px solid #eadfeb;
+    }
+
+    .dark-page .secondary {
+      color: #fff;
+      background: rgba(255,255,255,.07);
+      border-color: rgba(255,255,255,.12);
+    }
+
+    .link-row {
+      border: 1px solid #eadfeb;
+      border-radius: 18px;
+      padding: 14px;
+      background: rgba(255,255,255,.62);
+    }
+
+    .dark-page .link-row {
+      border-color: rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+    }
+
+    .article p { line-height: 1.85; color: #665d6e; }
+    .dark-page .article p { color: #b9afc2; }
+    .article h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); font-weight: 800; margin-top: 3rem; }
+    .article h3 { font-size: 1.2rem; font-weight: 800; margin-top: 1.8rem; }
+    .article ul { padding-left: 1.25rem; color: #665d6e; line-height: 1.8; }
+    .dark-page .article ul { color: #b9afc2; }
+
+    .faq-answer { display: none; }
+    .faq-item.open .faq-answer { display: block; }
+    .faq-item.open .faq-plus { transform: rotate(45deg); }
+
+    @media print {
+      body * { visibility: hidden !important; }
+      #printArea, #printArea * { visibility: visible !important; }
+      #printArea {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+      }
+      .print-hide { display: none !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="sticky top-0 z-50 px-4 py-3">
+    <div class="max-w-7xl mx-auto glass rounded-2xl px-4 sm:px-6 py-3 flex items-center justify-between">
+      <a href="#top" class="flex items-center gap-2 sm:gap-3">
+        <svg width="38" height="38" viewBox="0 0 64 64" aria-label="LinkAura logo">
+          <defs>
+            <linearGradient id="igLogoGradient" x1="0" y1="1" x2="1" y2="0">
+              <stop offset="0%" stop-color="#feda75"/>
+              <stop offset="28%" stop-color="#fa7e1e"/>
+              <stop offset="55%" stop-color="#d62976"/>
+              <stop offset="78%" stop-color="#962fbf"/>
+              <stop offset="100%" stop-color="#4f5bd5"/>
+            </linearGradient>
+          </defs>
+          <rect x="4" y="4" width="56" height="56" rx="17" fill="url(#igLogoGradient)"/>
+          <rect x="17" y="17" width="30" height="30" rx="9" fill="none" stroke="#fff" stroke-width="4"/>
+          <circle cx="32" cy="32" r="7" fill="none" stroke="#fff" stroke-width="4"/>
+          <circle cx="43" cy="21" r="3" fill="#fff"/>
+        </svg>
+        <div class="leading-tight">
+          <div class="font-extrabold text-lg tracking-tight">LinkAura</div>
+          <div class="text-[10px] font-bold text-pink-500 hidden sm:block">CREATOR LINK MAGIC</div>
+        </div>
+        <span class="hidden md:inline-flex text-[10px] font-extrabold tracking-wide bg-emerald-100 text-emerald-700 px-2.5 py-1 rounded-full">UNLIMITED FREE USAGE</span>
+      </a>
+      <nav class="flex items-center gap-2 sm:gap-5 text-sm font-semibold">
+        <a href="#top" class="hover:text-pink-500">Home</a>
+        <a href="https://fixoraa.tech" class="hover:text-pink-500">More Tools</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="max-w-7xl mx-auto px-4 pt-6">
+      <div class="ad-slot">
+        <div class="top-ad-inner">
+          <script>
+            atOptions = {
+              'key' : '4e68ac77881c17fe128a46565d9a4e8c',
+              'format' : 'iframe',
+              'height' : 90,
+              'width' : 728,
+              'params' : {}
+            };
+          </script>
+          <script src="https://www.highrevenueformat.com/4e68ac77881c17fe128a46565d9a4e8c/invoke.js"></script>
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-4 py-5">
+      <div class="text-center max-w-3xl mx-auto">
+        <span class="inline-flex rounded-full bg-pink-100 text-pink-700 px-3 py-1 text-xs font-extrabold">INSTAGRAM • CREATOR • QR</span>
+        <h1 class="text-3xl sm:text-5xl font-black tracking-tight mt-4">Instagram Link in Bio <span class="gradient-text">QR Generator</span></h1>
+        <p class="mt-4 text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
+          Build an aesthetic Link in Bio page, add your most important links, and generate a branded QR code with an Instagram-style center logo.
+        </p>
+      </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-4 pb-10">
+      <div class="grid xl:grid-cols-[1.15fr_.85fr] gap-6 items-start">
+        <div class="glass rounded-3xl p-5 sm:p-7">
+          <div class="flex items-center justify-between gap-3 mb-6">
+            <div>
+              <h2 class="text-xl font-extrabold">Build your Link in Bio</h2>
+              <p class="text-sm text-slate-500 mt-1">Everything updates instantly.</p>
+            </div>
+            <span class="md:hidden text-[9px] font-extrabold bg-emerald-100 text-emerald-700 px-2 py-1 rounded-full">FREE</span>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-4">
+            <label class="block">
+              <span class="text-sm font-bold">Name</span>
+              <input id="nameInput" class="field mt-2" maxlength="40" placeholder="Your name" value="Ava Creator">
+            </label>
+            <label class="block">
+              <span class="text-sm font-bold">Handle</span>
+              <input id="handleInput" class="field mt-2" maxlength="30" placeholder="yourhandle" value="avacreator">
+            </label>
+          </div>
+
+          <label class="block mt-4">
+            <span class="text-sm font-bold">Bio <span class="text-xs text-slate-500">(80 characters)</span></span>
+            <textarea id="bioInput" class="field mt-2" maxlength="80" placeholder="Tell people what you create...">Fashion, beauty & everyday inspiration ✨</textarea>
+            <div class="text-right text-xs text-slate-500 mt-1"><span id="bioCount">0</span>/80</div>
+          </label>
+
+          <div class="grid sm:grid-cols-[1fr_auto] gap-3 mt-4">
+            <label class="block">
+              <span class="text-sm font-bold">Avatar URL</span>
+              <input id="avatarUrl" class="field mt-2" placeholder="https://..." value="">
+            </label>
+            <label class="block">
+              <span class="text-sm font-bold">Upload</span>
+              <input id="avatarFile" type="file" accept="image/*" class="field mt-2">
+            </label>
+          </div>
+
+          <div class="mt-7">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="font-extrabold">Links</h3>
+              <span class="text-xs text-slate-500">Maximum 4</span>
+            </div>
+            <div id="linksManager" class="space-y-3"></div>
+            <button id="addLinkBtn" class="action secondary w-full mt-3">＋ Add Link</button>
+          </div>
+
+          <div class="mt-8">
+            <h3 class="font-extrabold mb-3">Choose a Theme</h3>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              <button class="theme-card active rounded-2xl p-3 text-left" data-theme="instagram">
+                <span class="block h-10 rounded-xl bg-gradient-to-r from-[#feda75] via-[#d62976] to-[#4f5bd5]"></span>
+                <span class="text-xs font-bold mt-2 block">Instagram Gradient</span>
+              </button>
+              <button class="theme-card rounded-2xl p-3 text-left" data-theme="barbie">
+                <span class="block h-10 rounded-xl bg-gradient-to-r from-[#ff6ec7] to-[#ffd6e8]"></span>
+                <span class="text-xs font-bold mt-2 block">Barbie Pink</span>
+              </button>
+              <button class="theme-card rounded-2xl p-3 text-left" data-theme="pastel">
+                <span class="block h-10 rounded-xl bg-gradient-to-r from-[#a7e8ff] to-[#f9b7e8]"></span>
+                <span class="text-xs font-bold mt-2 block">Pastel Dream</span>
+              </button>
+              <button class="theme-card rounded-2xl p-3 text-left" data-theme="minimal">
+                <span class="block h-10 rounded-xl bg-gradient-to-r from-[#fff] to-[#e8e8e8] border"></span>
+                <span class="text-xs font-bold mt-2 block">Minimal White</span>
+              </button>
+              <button class="theme-card rounded-2xl p-3 text-left" data-theme="dark">
+                <span class="block h-10 rounded-xl bg-gradient-to-r from-[#17131d] to-[#49394e]"></span>
+                <span class="text-xs font-bold mt-2 block">Dark Mode</span>
+              </button>
+              <button class="theme-card rounded-2xl p-3 text-left" data-theme="sunset">
+                <span class="block h-10 rounded-xl bg-gradient-to-r from-[#ff7b54] to-[#ff4fa3]"></span>
+                <span class="text-xs font-bold mt-2 block">Sunset Orange-Pink</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="mt-6">
+            <h3 class="font-extrabold mb-3">Font Style</h3>
+            <select id="fontSelect" class="field">
+              <option value="poppins">Poppins Modern</option>
+              <option value="cursive">Cursive Girly</option>
+              <option value="impact">Bold Impact</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="space-y-6 xl:sticky xl:top-24">
+          <div class="glass rounded-3xl p-5 sm:p-7">
+            <div class="flex items-center justify-between">
+              <div>
+                <h2 class="text-xl font-extrabold">Live Bio Preview</h2>
+                <p class="text-sm text-slate-500 mt-1">Mobile-first creator page.</p>
+              </div>
+              <span class="text-xs font-bold text-pink-500">LIVE</span>
+            </div>
+
+            <div class="flex justify-center mt-5">
+              <div class="phone">
+                <div class="phone-notch"></div>
+                <div id="bioScreen" class="bio-screen">
+                  <div class="text-center">
+                    <img id="previewAvatar" class="bio-avatar mx-auto" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=240&q=80" alt="Creator avatar">
+                    <h3 id="previewName" class="font-extrabold text-lg mt-3">Ava Creator</h3>
+                    <div id="previewHandle" class="text-xs opacity-70">@avacreator</div>
+                    <p id="previewBio" class="text-sm mt-3 leading-relaxed">Fashion, beauty & everyday inspiration ✨</p>
+                    <div id="previewLinks" class="space-y-3 mt-5"></div>
+                    <div class="text-[9px] opacity-50 mt-6">Made with LinkAura</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass rounded-3xl p-5 sm:p-7" id="printArea">
+            <div class="flex items-center justify-between mb-4">
+              <div>
+                <h2 class="text-xl font-extrabold">Your QR Code</h2>
+                <p class="text-sm text-slate-500 mt-1">High error correction • Instagram-style center</p>
+              </div>
+              <span class="text-xs font-bold bg-emerald-100 text-emerald-700 px-2 py-1 rounded-full">SCAN READY</span>
+            </div>
+
+            <div id="qrStage" class="qr-stage bg-gradient-to-br from-pink-50 to-purple-50 mx-auto">
+              <canvas id="qrCanvas" width="420" height="420" aria-label="Generated QR code"></canvas>
+            </div>
+
+            <div class="mt-5">
+              <label class="text-sm font-bold">QR Size: <span id="qrSizeLabel">300</span>px</label>
+              <input id="qrSize" class="range mt-3" type="range" min="160" max="420" value="300">
+            </div>
+
+            <div class="mt-4 p-3 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10">
+              <div class="text-xs font-bold text-slate-500">BIO LINK</div>
+              <div id="bioLinkText" class="text-sm font-bold break-all mt-1">https://linkaura.bio/p/avacreator</div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3 mt-4 print-hide">
+              <button id="downloadPng" class="action primary">↓ PNG HD</button>
+              <button id="downloadSvg" class="action secondary">↓ SVG</button>
+              <button id="copyBio" class="action secondary">Copy Bio Link</button>
+              <button id="printBtn" class="action secondary">Print Ready</button>
+            </div>
+            <div id="status" class="text-center text-sm font-semibold mt-4 min-h-5"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LinkAura single-file architecture: all UI, state, QR composition and export logic live here. -->
+    <!-- Responsive advertising container: the supplied ad snippets are kept in their requested positions. -->
+    <!-- Profile builder: name, handle, bio and avatar controls. -->
+    <!-- Link manager: four configurable creator destinations with icon and color controls. -->
+    <!-- Theme system: six visual presets are shared by the phone preview and QR wrapper. -->
+    <!-- QR renderer: QRCode.js high-error-correction output is composited onto a canvas with an Instagram-style mark. -->
+    <!-- Export system: HD PNG, SVG wrapper, clipboard and browser print workflow. -->
+    <!-- Local persistence: profile, links, theme, font and QR size are stored in LocalStorage. -->
+    <!-- SEO content: semantic headings, FAQ content and structured data are included in this document. -->
+
+    <section class="max-w-7xl mx-auto px-4">
+      <div class="ad-slot">
+        <script async src="https://js.wpadmngr.com/static/adManager.js" data-admpid="464498"></script>
+      </div>
+    </section>
+
+    <article class="article max-w-4xl mx-auto px-4 py-12">
+      <div class="text-center">
+        <span class="text-xs font-extrabold tracking-widest text-pink-500">LINKAURA GUIDE</span>
+        <h2 class="text-3xl sm:text-4xl font-black mt-3">Instagram Link in Bio QR Generator: A Complete Creator Guide</h2>
+        <p class="mt-4">A Link in Bio page and a scannable QR code can turn one simple profile into a compact destination for your audience. LinkAura combines both in one browser-based creator workflow.</p>
+      </div>
+
+      <h2>What Is an Instagram Link in Bio QR Generator?</h2>
+      <p>
+        An Instagram Link in Bio QR Generator creates a QR code that points to a creator-friendly landing page containing several important links. Instead of asking a follower to search for a website, YouTube channel, shop, WhatsApp contact or another social profile separately, a single QR scan can open one organized destination. LinkAura is designed around this simple idea: build a lightweight Link in Bio page and turn its address into a recognizable QR graphic.
+      </p>
+      <p>
+        The QR generated by this page uses high error correction and a small Instagram-inspired center mark. The center treatment is kept compact so the QR remains practical for scanning. Because the QR points to a bio URL rather than storing every button inside the graphic, creators can keep a clean visual code while presenting several destinations on the landing page.
+      </p>
+
+      <h2>Why a QR Code With a Logo Matters</h2>
+      <p>
+        Standard black-and-white QR codes are highly useful, but branded QR graphics can fit more naturally into creator materials such as business cards, posters, packaging, event displays and social media artwork. A recognizable center element can make the code look intentional rather than like an unrelated technical square placed on a design.
+      </p>
+      <p>
+        LinkAura uses QRCode.js with high error correction and composites a small gradient Instagram-style circle over the middle. High error correction gives the QR additional redundancy, which is useful when a small portion of the code is visually covered. Even so, QR design should always be tested with more than one phone before a large print run.
+      </p>
+
+      <h3>Feature 1: Link in Bio + QR Combination</h3>
+      <p>
+        The first major feature is the combination of a mini Link in Bio page and its QR code. Add a creator name, handle and short bio, then configure up to four buttons. You can create destinations for YouTube, WhatsApp, an online shop, Instagram or any custom URL. The QR automatically encodes the generated bio address based on the handle.
+      </p>
+      <p>
+        This approach is useful because one QR graphic can represent an entire collection of destinations. A printed card does not need four separate QR codes. A boutique can direct shoppers to its social profile, messaging channel and shop from one page. A creator can connect videos, community links and a portfolio without changing the QR artwork itself.
+      </p>
+
+      <h3>Feature 2: Aesthetic Color Customization</h3>
+      <p>
+        Visual consistency matters when a QR code is placed next to an established creator identity. LinkAura includes six themes: Instagram Gradient, Barbie Pink, Pastel Dream, Minimal White, Dark Mode and Sunset Orange-Pink. Each theme changes the presentation of the QR area and the mobile preview so you can quickly see how the complete design feels together.
+      </p>
+      <p>
+        The font selector adds another layer of personality. Poppins Modern gives a clean contemporary appearance, Dancing Script creates a decorative cursive look, and Bold Impact emphasizes a stronger creator headline. These choices are intentionally simple so the page remains readable on small screens.
+      </p>
+
+      <h3>Feature 3: Download and Print Options</h3>
+      <p>
+        LinkAura provides a 1024 by 1024 PNG download for high-resolution use, an SVG wrapper for convenient vector-based document placement, a direct Bio Link copy button, and a print-ready action. The PNG is generated from the same QR composition used in the preview, so the center logo treatment is preserved.
+      </p>
+      <p>
+        Before printing, test the downloaded image at the approximate size and surface where it will be used. Matte and glossy materials can reflect light differently. Keep enough whitespace around the QR and avoid squeezing it into a decorative frame that makes the finder patterns difficult to recognize.
+      </p>
+
+      <h2>How to Use the LinkAura Generator in 3 Steps</h2>
+      <h3>Step 1: Build Your Profile</h3>
+      <p>
+        Enter your name, handle and short bio. Add an avatar by URL or upload a local image. Your profile preview updates as you type, allowing you to see how the creator page will look on a phone-sized screen.
+      </p>
+      <h3>Step 2: Add Your Important Links</h3>
+      <p>
+        Use the Links manager to add up to four destinations. Choose an icon style, enter a title and URL, and select a button color. Keep titles short and recognizable. For example, “Watch on YouTube” or “Message on WhatsApp” tells a visitor what will happen after tapping.
+      </p>
+      <h3>Step 3: Download or Print Your QR</h3>
+      <p>
+        Select a theme, adjust the QR size, confirm the displayed bio link, and download the PNG or SVG. You can also copy the bio address or open the print workflow. Always scan-test the final asset before publishing it on physical media.
+      </p>
+
+      <h2>Use Cases for Creators and Small Brands</h2>
+      <h3>Boutiques and Fashion Shops</h3>
+      <p>
+        A boutique can place one LinkAura QR on packaging, counter cards, thank-you cards or event signage. Visitors can reach the shop, Instagram account, messaging channel or promotional destination from one landing page. A themed visual can also complement a pink, pastel or fashion-oriented brand identity.
+      </p>
+      <h3>Influencers and Content Creators</h3>
+      <p>
+        Influencers often maintain several audience destinations. One week the main priority might be a YouTube launch; another week it could be a store or community page. A Link in Bio structure makes the destinations easier to organize, while the QR offers a bridge from offline audiences to the creator's online presence.
+      </p>
+      <h3>Students and Personal Portfolios</h3>
+      <p>
+        Students can use a compact Link in Bio page to connect a portfolio, social profile, project page and contact destination. A QR can be placed on a presentation board, résumé supplement, project poster or event badge. Keeping the page concise helps visitors understand the available destinations quickly.
+      </p>
+
+      <h2>Why LinkAura Is Designed for Fast Creator Workflows</h2>
+      <p>
+        The generator is intentionally client-side for the core builder. Profile data and settings are stored in browser LocalStorage, so returning to the page can restore the latest configuration on the same device and browser. QR composition also happens in the browser using the QRCode.js library.
+      </p>
+      <p>
+        A practical creator tool should reduce friction. Instead of opening separate design software, a QR generator and a landing-page editor, this workflow puts profile editing, link management, visual themes, QR sizing and export actions together. The live preview makes it easier to catch layout problems before a design is shared or printed.
+      </p>
+
+      <h2>QR Design Tips for Better Scanning</h2>
+      <ul>
+        <li>Keep a clear margin around the QR code.</li>
+        <li>Use strong contrast between the QR modules and background.</li>
+        <li>Do not make the center logo excessively large.</li>
+        <li>Test the final PNG or print with multiple phones.</li>
+        <li>Use a practical physical size for the viewing distance.</li>
+        <li>Avoid placing the QR over busy photographs without a quiet background.</li>
+      </ul>
+
+      <h2>Frequently Asked Questions</h2>
+      <div class="space-y-3 mt-5">
+        <div class="faq-item glass rounded-2xl overflow-hidden">
+          <button class="faq-question w-full flex justify-between gap-4 text-left p-5 font-extrabold">
+            <span>What is an Instagram Link in Bio QR code?</span>
+            <span class="faq-plus text-xl transition-transform">＋</span>
+          </button>
+          <div class="faq-answer px-5 pb-5 text-sm text-slate-500">It is a QR code that opens a Link in Bio page containing multiple creator, social, shop or messaging destinations.</div>
+        </div>
+        <div class="faq-item glass rounded-2xl overflow-hidden">
+          <button class="faq-question w-full flex justify-between gap-4 text-left p-5 font-extrabold">
+            <span>Can I add YouTube and WhatsApp?</span>
+            <span class="faq-plus text-xl transition-transform">＋</span>
+          </button>
+          <div class="faq-answer px-5 pb-5 text-sm text-slate-500">Yes. You can use up to four buttons and choose YouTube, WhatsApp, Shop, Instagram or a custom icon.</div>
+        </div>
+        <div class="faq-item glass rounded-2xl overflow-hidden">
+          <button class="faq-question w-full flex justify-between gap-4 text-left p-5 font-extrabold">
+            <span>Can I customize the colors?</span>
+            <span class="faq-plus text-xl transition-transform">＋</span>
+          </button>
+          <div class="faq-answer px-5 pb-5 text-sm text-slate-500">Yes. Six themes and three font styles are available, with live updates to the preview.</div>
+        </div>
+        <div class="faq-item glass rounded-2xl overflow-hidden">
+          <button class="faq-question w-full flex justify-between gap-4 text-left p-5 font-extrabold">
+            <span>Can I download a PNG or SVG?</span>
+            <span class="faq-plus text-xl transition-transform">＋</span>
+          </button>
+          <div class="faq-answer px-5 pb-5 text-sm text-slate-500">Yes. The PNG action creates a 1024px square image, and the SVG action wraps the generated PNG inside an SVG document.</div>
+        </div>
+        <div class="faq-item glass rounded-2xl overflow-hidden">
+          <button class="faq-question w-full flex justify-between gap-4 text-left p-5 font-extrabold">
+            <span>Does LinkAura save my profile?</span>
+            <span class="faq-plus text-xl transition-transform">＋</span>
+          </button>
+          <div class="faq-answer px-5 pb-5 text-sm text-slate-500">The builder saves its current settings in your browser's LocalStorage. Uploaded avatar data is also kept locally when the browser permits it.</div>
+        </div>
+        <div class="faq-item glass rounded-2xl overflow-hidden">
+          <button class="faq-question w-full flex justify-between gap-4 text-left p-5 font-extrabold">
+            <span>Does the QR code actually scan?</span>
+            <span class="faq-plus text-xl transition-transform">＋</span>
+          </button>
+          <div class="faq-answer px-5 pb-5 text-sm text-slate-500">Yes. The QR is generated by QRCode.js with high error correction and then composited with a small center logo.</div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer class="border-t border-slate-200/70 dark:border-white/10 mt-8">
+    <div class="max-w-7xl mx-auto px-4 py-8 flex flex-col md:flex-row gap-5 justify-between items-center">
+      <div class="text-sm font-extrabold">© 2026 LinkAura. All Rights Reserved.</div>
+      <div class="flex flex-wrap justify-center gap-4 text-sm text-slate-500">
+        <a href="#about" class="hover:text-pink-500">About</a>
+        <a href="#contact" class="hover:text-pink-500">Contact</a>
+        <a href="#privacy" class="hover:text-pink-500">Privacy Policy</a>
+        <a href="#terms" class="hover:text-pink-500">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const $ = (id) => document.getElementById(id);
+
+    const defaultLinks = [
+      { title: "Watch on YouTube", url: "https://youtube.com/", icon: "youtube", color: "#ff0033" },
+      { title: "Chat on WhatsApp", url: "https://wa.me/", icon: "whatsapp", color: "#25D366" },
+      { title: "Shop My Picks", url: "https://example.com/shop", icon: "shop", color: "#8b5cf6" }
+    ];
+
+    const state = {
+      name: localStorage.getItem("la_name") || "Ava Creator",
+      handle: localStorage.getItem("la_handle") || "avacreator",
+      bio: localStorage.getItem("la_bio") || "Fashion, beauty & everyday inspiration ✨",
+      avatar: localStorage.getItem("la_avatar") || "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=240&q=80",
+      theme: localStorage.getItem("la_theme") || "instagram",
+      font: localStorage.getItem("la_font") || "poppins",
+      qrSize: Number(localStorage.getItem("la_qr_size") || 300),
+      links: JSON.parse(localStorage.getItem("la_links") || "null") || defaultLinks
+    };
+
+    const themes = {
+      instagram: {
+        page: "linear-gradient(145deg,#fff0f7 0%,#f5eaff 55%,#eef0ff 100%)",
+        qr: "linear-gradient(145deg,#fff0f7,#eee8ff)",
+        text: "#17121d"
+      },
+      barbie: {
+        page: "linear-gradient(145deg,#ff6ec7 0%,#ffd6e8 100%)",
+        qr: "linear-gradient(145deg,#fff0fa,#ffd6e8)",
+        text: "#3c1630"
+      },
+      pastel: {
+        page: "linear-gradient(145deg,#a7e8ff 0%,#f9b7e8 100%)",
+        qr: "linear-gradient(145deg,#eefcff,#ffeafb)",
+        text: "#183041"
+      },
+      minimal: {
+        page: "linear-gradient(145deg,#ffffff,#eeeeee)",
+        qr: "linear-gradient(145deg,#ffffff,#eeeeee)",
+        text: "#171717"
+      },
+      dark: {
+        page: "linear-gradient(145deg,#17131d,#49394e)",
+        qr: "linear-gradient(145deg,#211a28,#36283b)",
+        text: "#ffffff"
+      },
+      sunset: {
+        page: "linear-gradient(145deg,#ff7b54 0%,#ff4fa3 100%)",
+        qr: "linear-gradient(145deg,#fff0ea,#ffe6f4)",
+        text: "#35121e"
+      }
+    };
+
+    const fonts = {
+      poppins: "'Poppins',Inter,sans-serif",
+      cursive: "'Dancing Script',cursive",
+      impact: "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif"
+    };
+
+    const iconMap = {
+      whatsapp: "WA",
+      youtube: "▶",
+      shop: "SHOP",
+      instagram: "IG",
+      custom: "↗"
+    };
+
+    function sanitizeHandle(value) {
+      return value.toLowerCase().trim().replace(/^@+/, "").replace(/[^a-z0-9._-]/g, "").slice(0, 30) || "creator";
+    }
+
+    function getBioLink() {
+      return "https://linkaura.bio/p/" + sanitizeHandle(state.handle);
+    }
+
+    function saveState() {
+      localStorage.setItem("la_name", state.name);
+      localStorage.setItem("la_handle", state.handle);
+      localStorage.setItem("la_bio", state.bio);
+      localStorage.setItem("la_avatar", state.avatar);
+      localStorage.setItem("la_theme", state.theme);
+      localStorage.setItem("la_font", state.font);
+      localStorage.setItem("la_qr_size", String(state.qrSize));
+      localStorage.setItem("la_links", JSON.stringify(state.links));
+    }
+
+    function escapeHtml(value) {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function renderLinksManager() {
+      const manager = $("linksManager");
+      manager.innerHTML = "";
+
+      state.links.forEach((link, index) => {
+        const row = document.createElement("div");
+        row.className = "link-row";
+        row.innerHTML = `
+          <div class="flex items-center justify-between gap-3 mb-3">
+            <span class="text-xs font-extrabold text-pink-500">LINK ${index + 1}</span>
+            <button type="button" class="remove-link text-xs font-bold text-rose-500" data-index="${index}">Remove</button>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-3">
+            <input class="field link-title" data-index="${index}" maxlength="40" value="${escapeHtml(link.title)}" placeholder="Button title">
+            <input class="field link-url" data-index="${index}" value="${escapeHtml(link.url)}" placeholder="https://...">
+          </div>
+          <div class="grid grid-cols-[1fr_90px] gap-3 mt-3">
+            <select class="field link-icon" data-index="${index}">
+              <option value="whatsapp" ${link.icon === "whatsapp" ? "selected" : ""}>WhatsApp</option>
+              <option value="youtube" ${link.icon === "youtube" ? "selected" : ""}>YouTube</option>
+              <option value="shop" ${link.icon === "shop" ? "selected" : ""}>Shop</option>
+              <option value="instagram" ${link.icon === "instagram" ? "selected" : ""}>Instagram</option>
+              <option value="custom" ${link.icon === "custom" ? "selected" : ""}>Custom</option>
+            </select>
+            <input type="color" class="field link-color h-[46px] p-1" data-index="${index}" value="${escapeHtml(link.color)}" title="Button color">
+          </div>
+        `;
+        manager.appendChild(row);
+      });
+
+      manager.querySelectorAll(".remove-link").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const index = Number(btn.dataset.index);
+          state.links.splice(index, 1);
+          renderAll();
+        });
+      });
+
+      manager.querySelectorAll(".link-title").forEach(input => {
+        input.addEventListener("input", () => {
+          state.links[Number(input.dataset.index)].title = input.value;
+          renderPreviewAndSave();
+        });
+      });
+
+      manager.querySelectorAll(".link-url").forEach(input => {
+        input.addEventListener("input", () => {
+          state.links[Number(input.dataset.index)].url = input.value;
+          renderPreviewAndSave();
+        });
+      });
+
+      manager.querySelectorAll(".link-icon").forEach(select => {
+        select.addEventListener("change", () => {
+          state.links[Number(select.dataset.index)].icon = select.value;
+          renderPreviewAndSave();
+        });
+      });
+
+      manager.querySelectorAll(".link-color").forEach(input => {
+        input.addEventListener("input", () => {
+          state.links[Number(input.dataset.index)].color = input.value;
+          renderPreviewAndSave();
+        });
+      });
+    }
+
+    function renderPreview() {
+      const theme = themes[state.theme];
+      $("previewName").textContent = state.name || "Your Name";
+      $("previewHandle").textContent = "@" + sanitizeHandle(state.handle);
+      $("previewBio").textContent = state.bio || "Your short creator bio";
+      $("previewAvatar").src = state.avatar || "https://via.placeholder.com/160?text=Avatar";
+      $("bioScreen").style.background = theme.page;
+      $("bioScreen").style.color = theme.text;
+      $("bioScreen").style.fontFamily = fonts[state.font];
+
+      const wrap = $("previewLinks");
+      wrap.innerHTML = "";
+
+      state.links.forEach((link) => {
+        if (!link.title.trim() && !link.url.trim()) return;
+        const a = document.createElement("a");
+        a.href = link.url || "#";
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+        a.className = "bio-button";
+        a.style.background = link.color || "#8b5cf6";
+        a.innerHTML = `
+          <span class="bio-icon">${escapeHtml(iconMap[link.icon] || "↗")}</span>
+          <span class="truncate">${escapeHtml(link.title || "Open Link")}</span>
+        `;
+        wrap.appendChild(a);
+      });
+    }
+
+    function makeQrCanvas(size) {
+      const source = document.createElement("div");
+      source.style.position = "fixed";
+      source.style.left = "-10000px";
+      source.style.top = "-10000px";
+      source.style.width = "1px";
+      source.style.height = "1px";
+      document.body.appendChild(source);
+
+      new QRCode(source, {
+        text: getBioLink(),
+        width: size,
+        height: size,
+        colorDark: "#111111",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.H
+      });
+
+      return new Promise(resolve => {
+        setTimeout(() => {
+          const qrImg = source.querySelector("img");
+          const qrCanvas = source.querySelector("canvas");
+
+          if (qrCanvas) {
+            resolve({ source, node: qrCanvas });
+            return;
+          }
+
+          if (qrImg && qrImg.complete) {
+            resolve({ source, node: qrImg });
+            return;
+          }
+
+          if (qrImg) {
+            qrImg.onload = () => resolve({ source, node: qrImg });
+            return;
+          }
+
+          resolve({ source, node: null });
+        }, 80);
+      });
+    }
+
+    async function renderQr() {
+      const size = state.qrSize;
+      $("qrSizeLabel").textContent = size;
+      $("bioLinkText").textContent = getBioLink();
+      $("qrStage").style.background = themes[state.theme].qr;
+
+      const result = await makeQrCanvas(size);
+      const output = $("qrCanvas");
+      output.width = size;
+      output.height = size;
+
+      const ctx = output.getContext("2d");
+      ctx.clearRect(0, 0, size, size);
+      ctx.fillStyle = "#ffffff";
+      ctx.fillRect(0, 0, size, size);
+
+      if (result.node) {
+        ctx.drawImage(result.node, 0, 0, size, size);
+      }
+
+      document.body.removeChild(result.source);
+
+      const logoRadius = Math.max(22, Math.round(size * 0.105));
+      const cx = size / 2;
+      const cy = size / 2;
+
+      ctx.save();
+      ctx.shadowColor = "rgba(0,0,0,.20)";
+      ctx.shadowBlur = Math.round(size * .025);
+      ctx.beginPath();
+      ctx.arc(cx, cy, logoRadius + 7, 0, Math.PI * 2);
+      ctx.fillStyle = "#ffffff";
+      ctx.fill();
+      ctx.restore();
+
+      const grad = ctx.createLinearGradient(cx - logoRadius, cy + logoRadius, cx + logoRadius, cy - logoRadius);
+      grad.addColorStop(0, "#feda75");
+      grad.addColorStop(.28, "#fa7e1e");
+      grad.addColorStop(.55, "#d62976");
+      grad.addColorStop(.78, "#962fbf");
+      grad.addColorStop(1, "#4f5bd5");
+
+      ctx.beginPath();
+      ctx.arc(cx, cy, logoRadius, 0, Math.PI * 2);
+      ctx.fillStyle = grad;
+      ctx.fill();
+
+      ctx.strokeStyle = "#ffffff";
+      ctx.lineWidth = Math.max(2, size * .012);
+      ctx.stroke();
+
+      ctx.fillStyle = "#ffffff";
+      ctx.font = `800 ${Math.round(logoRadius * .58)}px Inter, sans-serif`;
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillText("IG", cx, cy + 1);
+
+      window.lastQrDataUrl = output.toDataURL("image/png");
+    }
+
+    function renderAll() {
+      $("nameInput").value = state.name;
+      $("handleInput").value = state.handle;
+      $("bioInput").value = state.bio;
+      $("avatarUrl").value = state.avatar.startsWith("data:") ? "" : state.avatar;
+      $("fontSelect").value = state.font;
+      $("qrSize").value = state.qrSize;
+      $("bioCount").textContent = state.bio.length;
+
+      document.querySelectorAll(".theme-card").forEach(card => {
+        card.classList.toggle("active", card.dataset.theme === state.theme);
+      });
+
+      if (state.theme === "dark") document.body.classList.add("dark-page");
+      else document.body.classList.remove("dark-page");
+
+      renderLinksManager();
+      renderPreview();
+      renderQr();
+      saveState();
+    }
+
+    function renderPreviewAndSave() {
+      renderPreview();
+      saveState();
+      renderQr();
+    }
+
+    $("nameInput").addEventListener("input", e => {
+      state.name = e.target.value;
+      renderPreviewAndSave();
+    });
+
+    $("handleInput").addEventListener("input", e => {
+      state.handle = e.target.value;
+      renderPreviewAndSave();
+    });
+
+    $("bioInput").addEventListener("input", e => {
+      state.bio = e.target.value.slice(0, 80);
+      $("bioCount").textContent = state.bio.length;
+      renderPreviewAndSave();
+    });
+
+    $("avatarUrl").addEventListener("input", e => {
+      state.avatar = e.target.value.trim();
+      renderPreviewAndSave();
+    });
+
+    $("avatarFile").addEventListener("change", e => {
+      const file = e.target.files[0];
+      if (!file) return;
+      if (!file.type.startsWith("image/")) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        state.avatar = reader.result;
+        renderPreviewAndSave();
+      };
+      reader.readAsDataURL(file);
+    });
+
+    $("fontSelect").addEventListener("change", e => {
+      state.font = e.target.value;
+      renderAll();
+    });
+
+    $("qrSize").addEventListener("input", e => {
+      state.qrSize = Number(e.target.value);
+      $("qrSizeLabel").textContent = state.qrSize;
+      saveState();
+      renderQr();
+    });
+
+    document.querySelectorAll(".theme-card").forEach(card => {
+      card.addEventListener("click", () => {
+        state.theme = card.dataset.theme;
+        renderAll();
+      });
+    });
+
+    $("addLinkBtn").addEventListener("click", () => {
+      if (state.links.length >= 4) {
+        setStatus("You can add up to 4 links.", true);
+        return;
+      }
+
+      state.links.push({
+        title: "New Link",
+        url: "https://example.com/",
+        icon: "custom",
+        color: "#8b5cf6"
+      });
+
+      renderAll();
+    });
+
+    function setStatus(message, error = false) {
+      $("status").textContent = message;
+      $("status").className = "text-center text-sm font-semibold mt-4 min-h-5 " + (error ? "text-rose-500" : "text-emerald-600");
+      clearTimeout(window.statusTimer);
+      window.statusTimer = setTimeout(() => $("status").textContent = "", 3000);
+    }
+
+    $("downloadPng").addEventListener("click", async () => {
+      setStatus("Preparing 1024px PNG...");
+      await renderQr();
+
+      const source = $("qrCanvas");
+      const hd = document.createElement("canvas");
+      hd.width = 1024;
+      hd.height = 1024;
+      const ctx = hd.getContext("2d");
+      ctx.imageSmoothingEnabled = true;
+      ctx.drawImage(source, 0, 0, 1024, 1024);
+
+      const a = document.createElement("a");
+      a.href = hd.toDataURL("image/png", 1);
+      a.download = `linkaura-${sanitizeHandle(state.handle)}-qr.png`;
+      a.click();
+
+      setStatus("PNG downloaded.");
+    });
+
+    $("downloadSvg").addEventListener("click", async () => {
+      await renderQr();
+      const data = $("qrCanvas").toDataURL("image/png");
+      const svg = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+          <rect width="1024" height="1024" fill="#fff"/>
+          <image href="${data}" x="0" y="0" width="1024" height="1024" preserveAspectRatio="none"/>
+        </svg>
+      `;
+      const blob = new Blob([svg], { type: "image/svg+xml;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `linkaura-${sanitizeHandle(state.handle)}-qr.svg`;
+      a.click();
+      URL.revokeObjectURL(url);
+
+      setStatus("SVG downloaded.");
+    });
+
+    $("copyBio").addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(getBioLink());
+        setStatus("Bio link copied.");
+      } catch {
+        const temp = document.createElement("textarea");
+        temp.value = getBioLink();
+        document.body.appendChild(temp);
+        temp.select();
+        document.execCommand("copy");
+        temp.remove();
+        setStatus("Bio link copied.");
+      }
+    });
+
+    $("printBtn").addEventListener("click", () => {
+      window.print();
+    });
+
+    document.querySelectorAll(".faq-question").forEach(btn => {
+      btn.addEventListener("click", () => {
+        btn.parentElement.classList.toggle("open");
+      });
+    });
+
+    $("previewAvatar").addEventListener("error", () => {
+      $("previewAvatar").src = "https://via.placeholder.com/160?text=Avatar";
+    });
+
+    renderAll();
+  </script>
+</body>
+</html>
